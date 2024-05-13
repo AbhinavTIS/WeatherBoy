@@ -7,7 +7,7 @@ const getCity = async function(city) {
     const response = await fetch(baseURL+query) 
     const data = await response.json()
 
-    console.log(data);
+    console.log(data[0]['Key']);
 } 
 
 
