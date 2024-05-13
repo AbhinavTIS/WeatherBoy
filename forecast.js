@@ -1,15 +1,15 @@
 const key = "81vSPABSdboGiXbdDHNAMiNP9SMF4ALW";
 
-getWeather = async function(cityCode){
-    const base = `http://dataservice.accuweather.com/currentconditions/v1/${cityCode}`
-    const query = `?apikey=${key}`
-   
-    const  response =await  fetch(base+query)    
-    const data =await  response.json()
+getWeather = async function (cityCode) {
+  const base = `http://dataservice.accuweather.com/currentconditions/v1/${cityCode}`;
+  const query = `?apikey=${key}`;
 
-    return data[0]
-    // console.log(data);
-}
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data[0];
+  // console.log(data);
+};
 
 const getCity = async function (city) {
   const baseURL =
@@ -19,16 +19,14 @@ const getCity = async function (city) {
   const response = await fetch(baseURL + query);
   const data = await response.json();
 
-  return data[0]["Key"];
+  return data[0]['Key'];
 };
 
-getCity('Amritsar')
-.then((data) => {
-//   console.log(data);
-getWeather(data)
-.then((temp)=>console.log(temp))
-.catch(()=>console.log('ERROR in fetching conditions'))
+getCity("Amritsar")
+  .then((data) => {
+    return getWeather(data);
+  }).then((data)=>{
+    console.log(data);
+  })
+  .catch(() => console.log("Error"));
 
-})
-.catch(() => console.log("Error"));
-// console.log('hello');
