@@ -7,8 +7,8 @@ getWeather = async function(cityCode){
     const  response =await  fetch(base+query)    
     const data =await  response.json()
 
-    return data
-    console.log(data);
+    return data[0]
+    // console.log(data);
 }
 
 const getCity = async function (city) {
@@ -22,10 +22,12 @@ const getCity = async function (city) {
   return data[0]["Key"];
 };
 
-getCity('london')
-.then(async (data) => {
+getCity('Amritsar')
+.then((data) => {
 //   console.log(data);
 getWeather(data)
+.then((temp)=>console.log(temp))
+.catch(()=>console.log('ERROR in fetching conditions'))
 
 })
 .catch(() => console.log("Error"));
