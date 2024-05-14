@@ -9,3 +9,13 @@ cityForm.addEventListener('submit',function(e) {
   fetchWeatherData(cityName);
 } )
 
+
+const fetchWeatherData= async function(cityName){
+    try {
+        const cityCode = await getCity(cityName)
+        const weatherObject  = await getWeather(cityCode)
+        console.log(weatherObject);
+    } catch (error) {
+        console.log('Error in fetching the apis :', error );
+    }
+}
