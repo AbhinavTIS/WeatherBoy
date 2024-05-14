@@ -7,8 +7,8 @@ getWeather = async function (cityCode) {
   const response = await fetch(base + query);
   const data = await response.json();
 
-  return data[0];
-  // console.log(data);
+  return data[0]; //adding the index because data is an array that has one object that we need
+  
 };
 
 const getCity = async function (city) {
