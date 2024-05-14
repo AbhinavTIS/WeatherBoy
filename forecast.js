@@ -22,11 +22,11 @@ const getCity = async function (city) {
   return data[0]['Key'];
 };
 
-getCity("Amritsar")
-  .then((data) => {
-    return getWeather(data);
-  }).then((data)=>{
-    console.log(data);
-  })
-  .catch(() => console.log("Error"));
+// getCity(cityName)
+//   .then((data) => {
+//     return getWeather(data);
+//   }).then((data)=>{
+//     console.log(data);
+//   })
+//   .catch(() => console.log("Error"));
 
