@@ -1,8 +1,11 @@
-const inputBox = document.querySelector("input");
+const cityForm = document.querySelector("form");
+console.log(cityForm);
 
-inputBox.addEventListener("keydown", function (e) {
-  if (e.key == "Enter") {
-    console.log("Enter Key Pressed");
-    e.preventDefault();
-  }
-});
+cityForm.addEventListener('submit',function(e) {
+  e.preventDefault()
+
+  const cityName = cityForm.city.value.trim()
+
+  fetchWeatherData(cityName);
+} )
+
