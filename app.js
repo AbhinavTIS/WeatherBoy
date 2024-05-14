@@ -1,15 +1,18 @@
 const cityForm = document.querySelector("form");
 const weatherDetails = document.querySelector(".details");
 const weatherCard = document.querySelector(".card");
+const dayTimeImage = weatherCard.querySelector('img.time')
+const iconImage = weatherCard.querySelector('#icon')
 
 // function to change the DOM
 const updateUI = (data) => {
-//   const cityDetails = data.cityDetails;
-//   const weatherObject = data.weatherObject;
+  //   const cityDetails = data.cityDetails;
+  //   const weatherObject = data.weatherObject;
 
-//destructure properties
+  //destructure properties
 
-const {cityDetails, weatherObject}  =data;
+  const { cityDetails, weatherObject } = data;
+  console.log(data);
 
   weatherDetails.innerHTML = `
    <h5 class="my-3">${cityDetails.EnglishName}</h5>
@@ -20,11 +23,30 @@ const {cityDetails, weatherObject}  =data;
           </div>    
           `;
 
-          //remove d-none class for the card if present
-        if(weatherCard.classList.contains('d-none')){
-            weatherCard.classList.remove('d-none')
-        }
-        };
+  //update images and icons
+  let timeSrc,iconSrc;
+  let  weatherIcon = weatherObject.WeatherIcon 
+
+  if(weatherObject.IsDayTime){
+    timeSrc = 'img/day.svg'
+  }else{
+    timeSrc = 'img/night.svg'
+  }
+
+  iconSrc= `img/icons/${weatherIcon}.svg`
+
+  dayTimeImage.src = timeSrc
+  iconImage.src = iconSrc
+  
+
+
+  console.log(cityDetails,weatherObject);
+
+  //remove d-none class for the card if present
+  if (weatherCard.classList.contains("d-none")) {
+    weatherCard.classList.remove("d-none");
+  }
+};
 
 const fetchWeatherData = async function (cityName) {
   try {
