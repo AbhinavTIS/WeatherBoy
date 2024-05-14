@@ -19,7 +19,7 @@ const getCity = async function (city) {
   const response = await fetch(baseURL + query);
   const data = await response.json();
 
-  return data[0]['Key'];
+  return data[0];
 };
 
 // getCity(cityName)
