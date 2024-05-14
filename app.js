@@ -15,7 +15,12 @@ const updateUI = (data) => {
             <span>&deg; C</span>
           </div>    
           `;
-};
+
+          //remove d-none class for the card if present
+        if(weatherCard.classList.contains('d-none')){
+            weatherCard.classList.remove('d-none')
+        }
+        };
 
 const fetchWeatherData = async function (cityName) {
   try {
