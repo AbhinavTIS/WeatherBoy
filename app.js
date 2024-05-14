@@ -4,8 +4,12 @@ const weatherCard = document.querySelector(".card");
 
 // function to change the DOM
 const updateUI = (data) => {
-  const cityDetails = data.cityDetails;
-  const weatherObject = data.weatherObject;
+//   const cityDetails = data.cityDetails;
+//   const weatherObject = data.weatherObject;
+
+//destructure properties
+
+const {cityDetails, weatherObject}  =data;
 
   weatherDetails.innerHTML = `
    <h5 class="my-3">${cityDetails.EnglishName}</h5>
